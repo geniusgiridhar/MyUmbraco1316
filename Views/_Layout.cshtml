@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(Model.Value("pageTitle") ?? Model.Name) - Umbraco Practice</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+
+    @* Component: Global Header *@
+    @await Html.PartialAsync("~/Views/Partials/Layout/_Header.cshtml", Model)
+
+    @* Main Page Content *@
+    <main>
+        @RenderBody()
+    </main>
+
+    @* Component: Global Footer *@
+    @await Html.PartialAsync("~/Views/Partials/Layout/_Footer.cshtml", Model)
+
+</body>
+</html> 

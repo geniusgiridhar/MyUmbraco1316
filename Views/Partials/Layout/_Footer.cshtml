@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var rootNode = Model.Root();
+    var copyrightText = rootNode.Value<string>("footerCopyright");
+    if (string.IsNullOrWhiteSpace(copyrightText))
+    {
+        copyrightText = $"© {DateTime.Now.Year} Umbraco Practice Site. All rights reserved.";
+    }
+}
+
+<footer class="site-footer">
+    <div class="container footer-content">
+        <p>@copyrightText</p>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+    </div>
+</footer>

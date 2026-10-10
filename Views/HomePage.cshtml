@@ -1,0 +1,80 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = "_Layout.cshtml";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container hero-content">
+        <h1 class="hero-title">@(Model.Value("heroTitle") ?? "Build Flexible Websites with Umbraco")</h1>
+        <p class="hero-description">
+            @(Model.Value("heroDescription") ?? "Practice wireframing Document Types, custom properties, and templates.")
+        </p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+            <a href="#services" class="btn btn-secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Cards Section -->
+<section id="services" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Core Features</h2>
+            <p class="section-subtitle">Structured components ready for Block List / Grid conversion.</p>
+        </div>
+
+        <div class="card-grid">
+            <article class="card">
+                <div class="card-tag">DocTypes</div>
+                <h3 class="card-title">Structured Data</h3>
+                <p class="card-text">Define precise property types for text, media, and pickers.</p>
+                <a href="#" class="card-link">Read more &rarr;</a>
+            </article>
+
+            <article class="card">
+                <div class="card-tag">Controllers</div>
+                <h3 class="card-title">Surface Controllers</h3>
+                <p class="card-text">Handle custom form submissions and post-backs cleanly.</p>
+                <a href="#" class="card-link">Read more &rarr;</a>
+            </article>
+
+            <article class="card">
+                <div class="card-tag">Templates</div>
+                <h3 class="card-title">Razor Views</h3>
+                <p class="card-text">Utilize strongly-typed models generated via ModelsBuilder.</p>
+                <a href="#" class="card-link">Read more &rarr;</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section id="contact" class="section section-alt">
+    <div class="container form-container">
+        <div class="section-header">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Use this form to test custom Surface Controllers or Umbraco Forms.</p>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Submit Message</button>
+        </form>
+    </div>
+</section>

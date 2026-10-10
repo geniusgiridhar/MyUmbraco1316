@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var rootNode = Model.Root();
+    var siteName = rootNode.Value<string>("siteName");
+    if (string.IsNullOrWhiteSpace(siteName))
+    {
+        siteName = "CraftCMS";
+    }
+
+    var navItems = rootNode.Children().Where(x => x.IsVisible()).ToList();
+}
+
+<header class="site-header">
+    <div class="container nav-container">
+        <a href="/" class="site-logo">@siteName</a>
+        <nav class="site-nav">
+            <ul class="nav-list">
+                <li>
+                    <a href="/" class="@(Model.Id == rootNode.Id ? "active" : "")">Home</a>
+                </li>
+                @foreach (var item in navItems)
+                {
+                    <li>
+                        <a href="@item.Url()" class="@(Model.Id == item.Id ? "active" : "")">@item.Name</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</header>
